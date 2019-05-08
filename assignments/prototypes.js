@@ -186,5 +186,4 @@ Humanoid.prototype.greet = function () {
     ],
     language: 'Elvish',
   });
-
-  console.log(sin)
+  
