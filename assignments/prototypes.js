@@ -162,7 +162,7 @@ Humanoid.prototype.greet = function () {
     },
     healthPoints: 5,
     name: 'Sinbad',
-    team: 'Mage Guild',
+    team: 'Ship',
     weapons: [
       'Sword',
     ],
