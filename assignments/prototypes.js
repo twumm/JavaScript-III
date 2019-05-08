@@ -40,9 +40,6 @@ CharacterStats.prototype.takeDamage = function() {
   return `${this.name} took damage`;
 }
 
-// const charStat = new CharacterStats(2, 'name');
-
-
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -63,9 +60,6 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}`;
 }
-
-
-// const humanoid = new Humanoid('sd', 'sdf', 'lang', 'jah');
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
