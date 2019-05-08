@@ -47,9 +47,12 @@ Logger.prototype.logs = function() {
 }
 
 const superLogger = new Logger('super logger');
-superLogger.logs('ho ho ho!');
+superLogger.logs();
 
 
 // Principle 4
 
 // code example for Explicit Binding
+const awesomeLogger = new Logger('awesome logger');
+const awesomeLoggerLogs = awesomeLogger.logs;
+awesomeLoggerLogs.call(awesomeLogger);
