@@ -15,9 +15,9 @@
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
-function GameObject({name, dimensions}) {
+function GameObject({name, createdAt, dimensions}) {
   this.name = name;
-  this.createdAt = new Date();
+  this.createdAt = createdAt;
   this.dimensions = dimensions;
 }
 
@@ -31,8 +31,8 @@ GameObject.prototype.destroy = function() {
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
   * should inherit destroy() from GameObject's prototype
 */
-function CharacterStats({healthPoints, name, dimensions}) {
-  GameObject.call(this, {name, dimensions});
+function CharacterStats({healthPoints, name, createdAt, dimensions}) {
+  GameObject.call(this, {name, createdAt, dimensions});
   this.healthPoints = healthPoints;
 }
 CharacterStats.prototype = Object.create(GameObject.prototype);
@@ -133,6 +133,58 @@ Humanoid.prototype.greet = function () {
 
 
   // Stretch task: 
-  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  function Hero({team, weapons, language, name, healthPoints, dimensions}) {
+    Humanoid.call(this, {team, weapons, language, name, healthPoints, dimensions});
+  }
+
+  Hero.prototype.removeHealth = function () {
+    console.log(this.healthPoints - 1);
+  }
+
+  function Villain({team, weapons, language, name, healthPoints, dimensions}) {
+    Humanoid.call(this, {team, weapons, language, name, healthPoints, dimensions});
+    Hero.call(this, Humanoid);
+  }
+
+  Villain.prototype = Object.create(Hero.prototype);
+
+
+  const sinbad = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 1,
+    },
+    healthPoints: 5,
+    name: 'Sinbad',
+    team: 'Mage Guild',
+    weapons: [
+      'Sword',
+    ],
+    language: 'Darthraki',
+  });
+
+  const oneEyed = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 8,
+    },
+    healthPoints: 10,
+    name: 'One Eye',
+    team: 'Ware',
+    weapons: [
+      'Bow',
+      'Dagger',
+      'Spear',
+    ],
+    language: 'Elvish',
+  });
+
+  console.log(sin)
