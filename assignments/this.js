@@ -14,6 +14,14 @@
 // Principle 1
 
 // code example for Window Binding
+console.log(`Just give me this -> `, this);
+// OR
+function logGlobalThis(globe) {
+  console.log('This from logGlobalThis -> ', this);
+  return globe;
+}
+
+logGlobalThis('some globe');
 
 // Principle 2
 
