@@ -40,10 +40,10 @@ implicitThisObj.getThis();
 // code example for New Binding
 function Logger(statement) {
   this.statement = statement;
-  this.logs = function() {
-    console.log(`What you want to be logged is -> ${this.statement}`);
-    console.log(this);
-  }
+}
+Logger.prototype.logs = function() {
+  console.log(`What you want to be logged is -> ${this.statement}`);
+  console.log(this);
 }
 
 const superLogger = new Logger('super logger');
