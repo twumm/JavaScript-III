@@ -26,6 +26,14 @@ logGlobalThis('some globe');
 // Principle 2
 
 // code example for Implicit Binding
+const implicitThisObj = {
+  name: "Implicit This",
+  getThis: function() {
+    console.log(`This is an implicit this named *${this.name}* -> `, this)
+  }
+}
+
+implicitThisObj.getThis();
 
 // Principle 3
 
