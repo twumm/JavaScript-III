@@ -38,6 +38,17 @@ implicitThisObj.getThis();
 // Principle 3
 
 // code example for New Binding
+function Logger(statement) {
+  this.statement = statement;
+  this.logs = function() {
+    console.log(`What you want to be logged is -> ${this.statement}`);
+    console.log(this);
+  }
+}
+
+const superLogger = new Logger('super logger');
+superLogger.logs('ho ho ho!');
+
 
 // Principle 4
 
