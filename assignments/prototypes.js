@@ -127,22 +127,8 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-function HeroKumVillain({
-  team,
-  weapons,
-  language,
-  name,
-  healthPoints,
-  dimensions
-}) {
-  Humanoid.call(this, {
-    team,
-    weapons,
-    language,
-    name,
-    healthPoints,
-    dimensions
-  });
+function HeroKumVillain({ team, weapons, language, name, healthPoints, dimensions }) {
+  Humanoid.call(this, { team, weapons, language, name, healthPoints, dimensions });
 }
 
 HeroKumVillain.prototype.hit = function(player, hit) {
@@ -183,4 +169,8 @@ const oneEyed = new HeroKumVillain({
   language: "Elvish"
 });
 
-console.log(oneEyed.hit());
+console.log(oneEyed.hit(sinbad, 3));
+console.log(sinbad.hit(oneEyed, 6));
+console.log(`${oneEyed.name} gets infuriated and draws a huge one from ${sinbad.name}!`);
+console.log('Boooooom!!!')
+console.log(oneEyed.hit(sinbad, 3));
