@@ -17,11 +17,11 @@
 console.log(`Just give me this -> `, this);
 // OR
 function logGlobalThis(globe) {
-  console.log('This from logGlobalThis -> ', this);
+  console.log("This from logGlobalThis -> ", this);
   return globe;
 }
 
-logGlobalThis('some globe');
+logGlobalThis("some globe");
 
 // Principle 2
 
@@ -29,9 +29,9 @@ logGlobalThis('some globe');
 const implicitThisObj = {
   name: "Implicit This",
   getThis: function() {
-    console.log(`This is an implicit this named *${this.name}* -> `, this)
+    console.log(`This is an implicit this named *${this.name}* -> `, this);
   }
-}
+};
 
 implicitThisObj.getThis();
 
@@ -44,15 +44,14 @@ function Logger(statement) {
 Logger.prototype.logs = function() {
   console.log(`What you want to be logged is -> ${this.statement}`);
   console.log(this);
-}
+};
 
-const superLogger = new Logger('super logger');
+const superLogger = new Logger("super logger");
 superLogger.logs();
-
 
 // Principle 4
 
 // code example for Explicit Binding
-const awesomeLogger = new Logger('awesome logger');
+const awesomeLogger = new Logger("awesome logger");
 const awesomeLoggerLogs = awesomeLogger.logs;
 awesomeLoggerLogs.call(awesomeLogger);
